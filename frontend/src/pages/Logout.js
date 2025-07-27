@@ -40,7 +40,7 @@ const LogoutContainer = styled.div`
   justify-content: center;
   align-items: center;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-  background-color: #85769f66;
+  background-color: #c4bbd8ff;
   color: black;
 `;
 
@@ -69,5 +69,5 @@ const LogoutButtonLogout = styled(LogoutButton)`
 `;
 
 const LogoutButtonCancel = styled(LogoutButton)`
-  background-color: rgb(99, 60, 99);
+  background-color: #2f195eff;
 `;

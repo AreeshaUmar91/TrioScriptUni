@@ -41,7 +41,7 @@ const ChooseUser = ({ visitor }) => {
     else if (user === "Student") {
       if (visitor === "guest") {
         const rollNum = "1"
-        const studentName = "Dipesh Awasthi"
+        const studentName = "Areesha"
         const fields = { rollNum, studentName, password }
         setLoader(true)
         dispatch(loginUser(fields, user))
@@ -88,7 +88,8 @@ const ChooseUser = ({ visitor }) => {
         <Grid container spacing={2} justifyContent="center">
           <Grid item xs={12} sm={6} md={4}>
             <div onClick={() => navigateHandler("Admin")}>
-              <StyledPaper elevation={3}>
+              <StyledPaper elevation={3} style={{background:"#2f195eff",
+    color:"white"}}>
                 <Box mb={2}>
                   <AccountCircle fontSize="large" />
                 </Box>
@@ -100,7 +101,8 @@ const ChooseUser = ({ visitor }) => {
             </div>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
-            <StyledPaper elevation={3}>
+            <StyledPaper elevation={3} style={{background:"#2f195eff",
+    color:"white"}} >
               <div onClick={() => navigateHandler("Student")}>
                 <Box mb={2}>
                   <School fontSize="large" />
@@ -113,7 +115,8 @@ const ChooseUser = ({ visitor }) => {
             </StyledPaper>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
-            <StyledPaper elevation={3}>
+            <StyledPaper elevation={3} style={{background:"#2f195eff",
+    color:"white"}}>
               <div onClick={() => navigateHandler("Teacher")}>
                 <Box mb={2}>
                   <Group fontSize="large" />
@@ -142,7 +145,7 @@ const ChooseUser = ({ visitor }) => {
 export default ChooseUser;
 
 const StyledContainer = styled.div`
-  background: linear-gradient(to bottom, #411d70, #19118b);
+  // background: linear-gradient(to bottom, #411d70, #19118b);
   height: 120vh;
   display: flex;
   justify-content: center;
@@ -152,15 +155,16 @@ const StyledContainer = styled.div`
 const StyledPaper = styled(Paper)`
   padding: 20px;
   text-align: center;
-  background-color: #1f1f38;
-  color:rgba(255, 255, 255, 0.6);
-  cursor:pointer;
-
-  &:hover {
-    background-color: #2c2c6c;
+  background:#2f195eff;
     color:white;
+   cursor:pointer;
+  &:hover {
+    background:#fff; 
+  color:#2f195eff;
   }
 `;
+
+
 
 const StyledTypography = styled.h2`
   margin-bottom: 10px;

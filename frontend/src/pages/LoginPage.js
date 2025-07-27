@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Button, Grid, Box, Typography, Paper, Checkbox, FormControlLabel, TextField, CssBaseline, IconButton, InputAdornment, CircularProgress, Backdrop } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
-import bgpic from "../assets/designlogin.jpg"
+import bgpic from "../assets/designlogin.png"
 import { LightPurpleButton } from '../components/buttonStyles';
 import styled from 'styled-components';
 import { loginUser } from '../redux/userRelated/userHandle';
@@ -226,7 +226,15 @@ const LoginPage = ({ role }) => {
                                 type="submit"
                                 fullWidth
                                 variant="contained"
-                                sx={{ mt: 3 }}
+                               
+                               sx={{mt: 3,
+    backgroundColor: "#2f195eff !important",
+    color: "#fff",
+    '&:hover': {
+      backgroundColor: "#fff !important",
+      color:"#2f195eff"
+    }
+  }}
                             >
                                 {loader ?
                                     <CircularProgress size={24} color="inherit" />
@@ -236,7 +244,10 @@ const LoginPage = ({ role }) => {
                                 fullWidth
                                 onClick={guestModeHandler}
                                 variant="outlined"
-                                sx={{ mt: 2, mb: 3, color: "#7f56da", borderColor: "#7f56da" }}
+                                sx={{ mt: 2, mb: 3, color: "#2f195eff", borderColor: "#2f195eff" ,   '&:hover': {
+      backgroundColor: "#2f195eff !important",
+      color:"#fff"
+    }}}
                             >
                                 Login as Guest
                             </Button>
@@ -246,7 +257,7 @@ const LoginPage = ({ role }) => {
                                         Don't have an account?
                                     </Grid>
                                     <Grid item sx={{ ml: 2 }}>
-                                        <StyledLink to="/Adminregister">
+                                        <StyledLink to="/Adminregister" style={{color:"#2f195eff"}}>
                                             Sign up
                                         </StyledLink>
                                     </Grid>
@@ -287,5 +298,5 @@ export default LoginPage
 const StyledLink = styled(Link)`
   margin-top: 9px;
   text-decoration: none;
-  color: #7f56da;
+  color: #2f195eff";
 `;
