@@ -1,20 +1,22 @@
-import React from 'react'
+import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import { useSelector } from 'react-redux';
-import Homepage from './pages/Homepage';
-import AdminDashboard from './pages/admin/AdminDashboard';
-import StudentDashboard from './pages/student/StudentDashboard';
-import TeacherDashboard from './pages/teacher/TeacherDashboard';
-import LoginPage from './pages/LoginPage';
-import AdminRegisterPage from './pages/admin/AdminRegisterPage';
-import ChooseUser from './pages/ChooseUser';
+import { useSelector } from "react-redux";
+
+import Homepage from "./pages/Homepage";
+import LoginPage from "./pages/LoginPage";
+import ChooseUser from "./pages/ChooseUser";
+import AdminRegisterPage from "./pages/admin/AdminRegisterPage";
+
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import TeacherDashboard from "./pages/teacher/TeacherDashboard";
+import StudentDashboard from "./pages/student/StudentDashboard";
 
 const App = () => {
-  const { currentRole } = useSelector(state => state.user);
+  const { currentRole } = useSelector((state) => state.user);
 
   return (
     <Router>
-      {currentRole === null &&
+      {!currentRole && (
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/choose" element={<ChooseUser visitor="normal" />} />
@@ -26,28 +28,16 @@ const App = () => {
 
           <Route path="/Adminregister" element={<AdminRegisterPage />} />
 
-          <Route path='*' element={<Navigate to="/" />} />
-        </Routes>}
+          {/* Redirect unknown routes to home */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      )}
 
-      {currentRole === "Admin" &&
-        <>
-          <AdminDashboard />
-        </>
-      }
-
-      {currentRole === "Student" &&
-        <>
-          <StudentDashboard />
-        </>
-      }
-
-      {currentRole === "Teacher" &&
-        <>
-          <TeacherDashboard />
-        </>
-      }
+      {currentRole === "Admin" && <AdminDashboard />}
+      {currentRole === "Student" && <StudentDashboard />}
+      {currentRole === "Teacher" && <TeacherDashboard />}
     </Router>
-  )
-}
+  );
+};
 
-export default App
+export default App;
