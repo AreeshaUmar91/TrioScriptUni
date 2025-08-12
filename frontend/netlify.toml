@@ -1,3 +1,11 @@
+[build]
+  publish = "build"
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "18"
+  NPM_VERSION = "9"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
@@ -7,3 +15,21 @@
   for = "/*"
   [headers.values]
     Cache-Control = "no-cache, no-store, must-revalidate"
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+
+# Environment variables for production
+[context.production.environment]
+  REACT_APP_BASE_URL = "https://your-backend-production-url.com"
+  REACT_APP_ENV = "production"
+
+# Environment variables for preview deployments
+[context.deploy-preview.environment]
+  REACT_APP_BASE_URL = "https://your-backend-staging-url.com"
+  REACT_APP_ENV = "staging"
+
+# Environment variables for branch deployments
+[context.branch-deploy.environment]
+  REACT_APP_BASE_URL = "https://your-backend-staging-url.com"
+  REACT_APP_ENV = "staging"
